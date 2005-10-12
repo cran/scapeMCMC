@@ -1,0 +1,58 @@
+\name{plotCumu}
+\alias{plotCumu}
+\title{Plot MCMC Cumulative Quantiles}
+\description{
+  Plot Markov-chain Monte Carlo cumulative quantiles. This is a
+  diagnostic plot for deciding whether the chain has converged.
+}
+\usage{
+plotCumu(mcmc, probs=c(0.025,0.975), div=1, log=FALSE, base=10,
+         main=NULL, xlab="Iterations", ylab="Value", lty.median=1,
+         lwd.median=2, col.median="black", lty.outer=2, lwd.outer=1,
+         col.outer="black", ...)
+}
+\arguments{
+  \item{mcmc}{MCMC chain(s) as a vector, data frame or \code{mcmc}
+    object.}
+  \item{probs}{outer quantiles to draw, a vector of length 2.}
+  \item{div}{denominator to shorten values on the y axis.}
+  \item{log}{whether values should be log-transformed.}
+  \item{base}{logarithm base.}
+  \item{main}{main title.}
+  \item{xlab}{x-axis label.}
+  \item{ylab}{y-axis label.}
+  \item{lty.median}{line type of median.}
+  \item{lwd.median}{line width of median.}
+  \item{col.median}{colour of median.}
+  \item{lty.outer}{line type of outer quantiles.}
+  \item{lwd.outer}{line width of outer quantiles.}
+  \item{col.outer}{colour of outer quantiles.}
+  \item{\dots}{passed to \code{cumuplot()}, \code{title()} and
+    \code{axis()}.}
+}
+\value{Null, but a plot is drawn on the current graphics device.}
+\note{
+  The \code{Args} function from the \pkg{gdata} package is recommended
+  for reviewing the arguments, instead of \code{args}.
+}
+\author{Arni Magnusson \email{arnima@u.washington.edu}.}
+\seealso{
+  This function calls \code{\link[coda]{cumuplot}}, adding support for
+  plain vectors and data frames. The \code{\link{quantile}} function is
+  used to compute the quantiles.
+
+  Diagnostic plots for MCMC chains include \code{\link{plotTrace}}
+  (trends), \code{\link{plotAuto}} (thinning), \code{plotCumu}
+  (convergence), \code{\link{plotSplom}} (confounding of parameters),
+  \code{\link{plotDens}} (posterior), and \code{\link{plotQuant}}
+  (multiple posteriors).
+}
+\examples{
+plotCumu(xmcmc$P$R0, main="R0")
+plotCumu(xmcmc$P$cSfull, main="cSfull")
+plotCumu(xmcmc$P, probs=c(0.25,0.50,0.75), ann=FALSE, axes=FALSE)
+}
+% Graphics
+\keyword{hplot}
+% Statistics
+\keyword{ts}

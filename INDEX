@@ -1,0 +1,10 @@
+importMCMC              Import Coleraine MCMC Results
+importProj              Import Coleraine MCMC Projections
+plotAuto                Plot MCMC Autocorrelation
+plotCumu                Plot MCMC Cumulative Quantiles
+plotDens                Plot MCMC Density
+plotQuant               Plot MCMC Quantiles
+plotSplom               Plot MCMC Scatterplot Matrix
+plotTrace               Plot MCMC Traces
+xmcmc                   MCMC Results from Cod Assessment
+xproj                   MCMC Projections from Cod Assessment
