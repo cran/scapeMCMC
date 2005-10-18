@@ -2,7 +2,7 @@
 function(mcmc, axes=FALSE, same.limits=FALSE, between=list(x=axes,y=axes), div=1, span=1/4, log=FALSE, base=10, main=NULL,
          xlab=NULL, ylab=NULL, cex.main=1.2, cex.lab=1, cex.strip=0.8, cex.axis=0.8, las=0, tck=0.5, tick.number=5,
          lty.trace=1, lwd.trace=1, col.trace="grey", lty.median=1, lwd.median=1, col.median="black", lty.loess=2,
-         lwd.loess=1, col.loess="black", plot.it=TRUE, ...)
+         lwd.loess=1, col.loess="black", plot=TRUE, ...)
 {
   ## 1 DEFINE FUNCTIONS
   panel.trace <- function(x, y, ...)
@@ -52,7 +52,7 @@ function(mcmc, axes=FALSE, same.limits=FALSE, between=list(x=axes,y=axes), div=1
                   scales=myscales, ...)
 
   ## 6 FINISH
-  if(plot.it)
+  if(plot)
   {
     print(graph)
     invisible(x)

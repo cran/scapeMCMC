@@ -26,14 +26,9 @@ plotSplom(mcmc, axes=FALSE, between=0, div=1, log=FALSE, base=10, ...)
 }
 \author{Arni Magnusson \email{arnima@u.washington.edu}.}
 \seealso{
-  This function is a very thin interface to \code{\link{pairs}}, as a
-  component of a plotting suite.
+  \code{\link{pairs}}, \code{\link[lattice]{splom}}.
 
-  Diagnostic plots for MCMC chains include \code{\link{plotTrace}}
-  (trends), \code{\link{plotAuto}} (thinning), \code{\link{plotCumu}}
-  (convergence), \code{plotSplom} (confounding of parameters),
-  \code{\link{plotDens}} (posterior), and \code{\link{plotQuant}}
-  (multiple posteriors).
+  \code{\link{scapeMCMC-package}} gives an overview of the package.
 }
 \examples{
 plotSplom(xmcmc$P)

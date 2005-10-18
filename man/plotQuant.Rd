@@ -51,7 +51,8 @@ right=c(0,0.6,0)), ...)
     left, top, right).}
   \item{mgp}{margins around axis titles, labels, and lines as a list of
     four vectors (bottom, left, top, right).}
-  \item{\dots}{further graphical arguments.}
+  \item{\dots}{passed to \code{plot}, \code{bxp}, \code{plotCI},
+    \code{lines}, \code{matplot}, \code{axis}, and \code{title}.}
 }
 \value{
   List containing:
@@ -64,15 +65,10 @@ right=c(0,0.6,0)), ...)
 }
 \author{Arni Magnusson \email{arnima@u.washington.edu}.}
 \seealso{
-  This function calls \code{\link{bxp}}, \code{\link[gplots]{plotCI}},
-  or \code{\link{matplot}}, depending on the \code{style} used. The
-  \code{\link{quantile}} function is used to compute the quantiles.
+  \code{\link{bxp}}, \code{\link[gplots]{plotCI}},
+  \code{\link{matplot}}, \code{\link{quantile}}.
 
-  Diagnostic plots for MCMC chains include \code{\link{plotTrace}}
-  (trends), \code{\link{plotAuto}} (thinning), \code{\link{plotCumu}}
-  (convergence), \code{\link{plotSplom}} (confounding of parameters),
-  \code{\link{plotDens}} (posterior), and \code{plotQuant} (multiple
-  posteriors).
+  \code{\link{scapeMCMC-package}} gives an overview of the package.
 }
 \examples{
 plotQuant(xmcmc$B, style="lines", div=1000, xlab="Year",

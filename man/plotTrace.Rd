@@ -12,7 +12,7 @@ plotTrace(mcmc, axes=FALSE, same.limits=FALSE,
           cex.lab=1, cex.strip=0.8, cex.axis=0.8, las=0, tck=0.5,
           tick.number=5, lty.trace=1, lwd.trace=1, col.trace="grey",
           lty.median=1, lwd.median=1, col.median="black", lty.loess=2,
-          lwd.loess=1, col.loess="black", plot.it=TRUE, ...)
+          lwd.loess=1, col.loess="black", plot=TRUE, ...)
 }
 \arguments{
   \item{mcmc}{MCMC chain(s) as a vector, data frame or \code{mcmc}
@@ -45,13 +45,13 @@ plotTrace(mcmc, axes=FALSE, same.limits=FALSE,
   \item{lty.loess}{line type of loess.}
   \item{lwd.loess}{line width of loess.}
   \item{col.loess}{colour of loess.}
-  \item{plot.it}{whether to draw plot.}
+  \item{plot}{whether to draw plot.}
   \item{\dots}{passed to \code{xyplot} and \code{panel.loess}.}
 }
 \value{
-  When \code{plot.it=TRUE}, a trellis plot is drawn and a data frame is
+  When \code{plot=TRUE}, a trellis plot is drawn and a data frame is
   returned, containing the data used for plotting. When
-  \code{plot.it=FALSE}, a trellis object is returned.
+  \code{plot=FALSE}, a trellis object is returned.
 }
 \note{
   This function tries to draw the plot on a trellis device with a white
@@ -62,14 +62,10 @@ plotTrace(mcmc, axes=FALSE, same.limits=FALSE,
 }
 \author{Arni Magnusson \email{arnima@u.washington.edu}.}
 \seealso{
-  This function conveniently combines
-  \code{\link[lattice]{panel.loess}} with \code{\link{quantile}}.
+  \code{\link[lattice]{Lattice}}, \code{\link[lattice]{panel.loess}},
+  \code{\link[coda]{traceplot}}, \code{\link{quantile}}.
 
-  Diagnostic plots for MCMC chains include \code{plotTrace} (trends),
-  \code{\link{plotAuto}} (thinning), \code{\link{plotCumu}}
-  (convergence), \code{\link{plotSplom}} (confounding of parameters),
-  \code{\link{plotDens}} (posterior), and \code{\link{plotQuant}}
-  (multiple posteriors).
+  \code{\link{scapeMCMC-package}} gives an overview of the package.
 }
 \examples{
 plotTrace(xmcmc$P, xlab="Iterations", ylab="Parameter value",

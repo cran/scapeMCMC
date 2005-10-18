@@ -14,7 +14,7 @@ plotDens(mcmc, probs=c(0.025,0.975), points=FALSE, axes=TRUE,
          col.density="black", lty.median=2, lwd.median=1,
          col.median="darkgrey", lty.outer=3, lwd.outer=1,
          col.outer="darkgrey", pch="|", cex.points=1,
-         col.points="black", plot.it=TRUE, ...)
+         col.points="black", plot=TRUE, ...)
 }
 \arguments{
   \item{mcmc}{MCMC chain(s) as a vector, data frame or \code{mcmc}
@@ -51,13 +51,14 @@ plotDens(mcmc, probs=c(0.025,0.975), points=FALSE, axes=TRUE,
   \item{pch}{symbol for data points.}
   \item{cex.points}{size of data points.}
   \item{col.points}{colour of data points.}
-  \item{plot.it}{whether to draw plot.}
-  \item{\dots}{passed to \code{xyplot} and \code{panel.densityplot}.}
+  \item{plot}{whether to draw plot.}
+  \item{\dots}{passed to \code{densityplot} and
+    \code{panel.densityplot}.}
 }
 \value{
-  When \code{plot.it=TRUE}, a trellis plot is drawn and a data frame is
+  When \code{plot=TRUE}, a trellis plot is drawn and a data frame is
   returned, containing the data used for plotting. When
-  \code{plot.it=FALSE}, a trellis object is returned.
+  \code{plot=FALSE}, a trellis object is returned.
 }
 \note{
   This function tries to draw the plot on a trellis device with a white
@@ -68,14 +69,11 @@ plotDens(mcmc, probs=c(0.025,0.975), points=FALSE, axes=TRUE,
 }
 \author{Arni Magnusson \email{arnima@u.washington.edu}.}
 \seealso{
-  This function conveniently combines
-  \code{\link[lattice]{panel.densityplot}} with \code{\link{quantile}}.
+  \code{\link[lattice]{Lattice}},
+  \code{\link[lattice]{panel.densityplot}},
+  \code{\link[coda]{densplot}}, \code{\link{quantile}}.
 
-  Diagnostic plots for MCMC chains include \code{\link{plotTrace}}
-  (trends), \code{\link{plotAuto}} (thinning), \code{\link{plotCumu}}
-  (convergence), \code{\link{plotSplom}} (confounding of parameters),
-  \code{plotDens} (posterior), and \code{\link{plotQuant}} (multiple
-  posteriors).
+  \code{\link{scapeMCMC-package}} gives an overview of the package.
 }
 \examples{
 plotDens(xmcmc$B$"2004", points=TRUE, div=1000, main="2004\n",

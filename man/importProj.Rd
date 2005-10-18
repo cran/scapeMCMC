@@ -27,10 +27,7 @@ importProj(dir, info="", coda=FALSE, quiet=TRUE)
 \note{
   MCMC projections can be used to evaluate the short-term outcome of
   harvest policies (constant catch or constant harvest rate), given the
-  uncertainty about parameter values and random future recruitment. Some
-  aspects of the model are described on the \code{\link{xmcmc}} help
-  page, and on the \code{\link[scape]{x.cod}} help page in the
-  \pkg{scape} package.
+  uncertainty about parameter values and random future recruitment.
 
   The example dataset \code{xproj} was generated using
   \code{importProj}.
@@ -44,24 +41,14 @@ importProj(dir, info="", coda=FALSE, quiet=TRUE)
   \cite{Hilborn, R., M. Maunder, A. Parma, B. Ernst, J. Payne, and P.
     Starr. 2003. Coleraine: A generalized age-structured stock
     assessment model. User's manual version 2.0. University of
-    Washington Report SAFS--UW--0116.} Available at
+    Washington Report SAFS-UW-0116.} Available at
   http://fish.washington.edu/research/coleraine/coleraine.pdf.
 }
 \seealso{
-  Functions to import Coleraine MCMC results are
-  \code{\link{importMCMC}} (traces of likelihoods, parameters, biomass
-  and recruitment), and \code{importProj} (future projections of biomass
-  and catch). Diagnostic plots for the imported MCMC results include
-  \code{\link{plotTrace}} (trends), \code{\link{plotAuto}} (thinning),
-  \code{\link{plotCumu}} (convergence), \code{\link{plotSplom}}
-  (confounding of parameters), \code{\link{plotDens}} (posterior), and
-  \code{\link{plotQuant}} (multiple posteriors).
+  \code{\link{importMCMC}}, \code{\link{read.table}},
+  \code{\link{readLines}}, \code{\link{scan}}, \code{\link{xproj}}.
 
-  The \pkg{scape} package provides diagnostic plot functions for
-  statistical catch-at-age model fit to data, recommended before
-  starting MCMC analysis. The \pkg{coda} package is a suite of
-  diagnostic functions for MCMC analysis, many of which are used in
-  \pkg{scapeMCMC}.
+  \code{\link{scapeMCMC-package}} gives an overview of the package.
 }
 \examples{
 \dontrun{

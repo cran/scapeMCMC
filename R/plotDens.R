@@ -3,7 +3,7 @@ function(mcmc, probs=c(0.025,0.975), points=FALSE, axes=TRUE, same.limits=FALSE,
          log=FALSE, base=10, main=NULL, xlab=NULL, ylab=NULL, cex.main=1.2, cex.lab=1, cex.strip=0.8, cex.axis=0.7,
          las=0, tck=0.5, tick.number=5, lty.density=1, lwd.density=3, col.density="black", lty.median=2, lwd.median=1,
          col.median="darkgrey", lty.outer=3, lwd.outer=1, col.outer="darkgrey", pch="|", cex.points=1, col.points="black",
-         plot.it=TRUE, ...)
+         plot=TRUE, ...)
 {
   ## 1 DEFINE FUNCTIONS
   panel.dens <- function(x, ...)
@@ -61,7 +61,7 @@ function(mcmc, probs=c(0.025,0.975), points=FALSE, axes=TRUE, same.limits=FALSE,
   }
 
   ## 6 FINISH
-  if(plot.it)
+  if(plot)
   {
     print(graph)
     invisible(x)
