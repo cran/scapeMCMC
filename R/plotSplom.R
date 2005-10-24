@@ -6,9 +6,9 @@ function(mcmc, axes=FALSE, between=0, div=1, log=FALSE, base=10, ...)
   mcmc <- if(log) log(mcmc/div,base=base) else mcmc/div
 
   if(!axes && is.null(ellipsis$oma))
-    pairs(mcmc, gap=between, oma=c(0,0,0,0), xaxt="n", yaxt="n", ...)
+    suppressWarnings(pairs(mcmc, gap=between, oma=c(0,0,0,0), xaxt="n", yaxt="n", ...))
   else
-    pairs(mcmc, gap=between, ...)
+    suppressWarnings(pairs(mcmc, gap=between, ...))
 
   invisible(NULL)
 }

@@ -1,6 +1,6 @@
 Package: scapeMCMC
-Version: 1.0-1
-Date: 2005-10-18
+Version: 1.0-2
+Date: 2005-10-24
 Title: MCMC diagnostic plots
 Author: Arni Magnusson and Ian Stewart
 Maintainer: Arni Magnusson <arnima@u.washington.edu>
@@ -13,4 +13,4 @@ Description: Markov-chain Monte Carlo diagnostic plots, accompanying the 'scape'
   application.
 License: GPL version 2 or newer
 URL: http://students.washington.edu/arnima/s/
-Packaged: Tue Oct 18 22:49:37 2005; arnima
+Packaged: Mon Oct 24 23:40:59 2005; arnima

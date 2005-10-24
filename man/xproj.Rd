@@ -48,6 +48,8 @@
 \seealso{
   \code{\link{importMCMC}}, \code{\link{importProj}},
   \code{\link{xmcmc}}.
+
+  \code{\link{scapeMCMC-package}} gives an overview of the package.
 }
 \examples{
 plotAuto(xproj$B$"0.25")
