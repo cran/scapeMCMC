@@ -32,10 +32,6 @@
     \code{\link{xmcmc}}, \code{\link{xproj}} \tab MCMC results and
     projections
   }
-  The vignette \file{scape/doc/dsc.pdf} provides background information
-  and introduces the design of \pkg{scape} and \pkg{scapeMCMC}, but is
-  not updated. Additional details are found on the
-  \code{help(package="scapeMCMC")} page.
 }
 \note{
   The plot functions assume that MCMC results are stored either as
@@ -44,10 +40,19 @@
   The examples demonstrate how several data frames can be bound together
   in nested lists.
 
+  An overview of plots is presented in \file{scapeMCMC/doc/dsc.pdf},
+  Section 2.4.
+
   The functions \code{Args} and \code{ll} (package \pkg{gdata}) can be
   useful for browsing unwieldy functions and objects.
 }
 \author{Arni Magnusson \email{arnima@u.washington.edu} and Ian Stewart.}
+\references{
+  Magnusson, A. (2005) \cite{R goes fishing: Analyzing fisheries data
+    using AD Model Builder and R.} Proceedings of the 5th International
+  Workshop on Distributed Statistical Computing. Available at
+  http://students.washington.edu/arnima/s/pdf/dsc.pdf.
+}
 \seealso{
   The \pkg{scape} package provides diagnostic plot functions for
   statistical catch-at-age model fit to data, recommended before

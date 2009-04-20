@@ -1,8 +1,17 @@
 --------------------------------------------------------------------------------
+scapeMCMC 1.0-4
+20 Apr 2009
+--------------------------------------------------------------------------------
+o No user-visible changes.
+
+
+
+
+--------------------------------------------------------------------------------
 scapeMCMC 1.0-3
 29 Sep 2007
 --------------------------------------------------------------------------------
-o Package administrative changes for R 2.6.0.
+o No user-visible changes.
 
 
 
@@ -11,7 +20,7 @@ o Package administrative changes for R 2.6.0.
 scapeMCMC 1.0-2
 24 Oct 2005
 --------------------------------------------------------------------------------
-o plotSplom() draws quietly.
+o Improved plotSplom() to draw quietly.
 
 
 
@@ -20,9 +29,9 @@ o plotSplom() draws quietly.
 scapeMCMC 1.0-1
 18 Oct 2005
 --------------------------------------------------------------------------------
-o plotDens() and plotTrace() argument shortened: 'plot.it'->'plot'.
+o Renamed argument 'plot.it' to 'plot' in plotDens() and plotTrace().
 
-o Help pages revised.
+o Improved help pages.
 
 
 
@@ -31,11 +40,7 @@ o Help pages revised.
 scapeMCMC 1.0-0
 12 Oct 2005
 --------------------------------------------------------------------------------
-o man directory contains Rd documentation files.
-
-o root directory contains DESCRIPTION and INDEX.
-
-o inst directory contains CHANGES.
+o Added help pages for all functions.
 
 o Submitted to CRAN.
 
@@ -46,10 +51,10 @@ o Submitted to CRAN.
 scapeMCMC 0.9-0
 29 Sep 2005
 --------------------------------------------------------------------------------
-o R directory contains importMCMC.R, importProj.R, plotAuto.R, plotCumu.R,
-  plotDens.R, plotQuant.R, plotSplom.R, and plotTrace.R.
+o Added functions importMCMC(), importProj(), plotAuto(), plotCumu(),
+  plotDens(), plotQuant(), plotSplom(), and plotTrace().
 
-o data directory contains xmcmc.R and xproj.R.
+o Added example objects xmcmc and xproj.
 
-o inst/example directory contains mcmclike.out, params.pst, procatch.out,
-  projspbm.out, recruits.pst, spawbiom.pst, and strategy.out.
+o Added example files mcmclike.out, params.pst, procatch.out, projspbm.out,
+  recruits.pst, spawbiom.pst, and strategy.out.
