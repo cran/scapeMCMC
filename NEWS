@@ -1,0 +1,78 @@
+--------------------------------------------------------------------------------
+scapeMCMC 1.1-0
+04 Sep 2010
+--------------------------------------------------------------------------------
+o Added argument 'col.strip' to plotDens() and plotTrace(), with gray as
+  default.
+
+o Changed default 'cex.axis' in plotDens() to 0.8.
+
+o Reduced clutter at startup.
+
+o Added two vignettes: dsc-vignette.pdf and gallery.pdf.
+
+o Updated URLs and email address.
+
+
+
+
+--------------------------------------------------------------------------------
+scapeMCMC 1.0-4
+20 Apr 2009
+--------------------------------------------------------------------------------
+o No user-visible changes.
+
+
+
+
+--------------------------------------------------------------------------------
+scapeMCMC 1.0-3
+29 Sep 2007
+--------------------------------------------------------------------------------
+o No user-visible changes.
+
+
+
+
+--------------------------------------------------------------------------------
+scapeMCMC 1.0-2
+24 Oct 2005
+--------------------------------------------------------------------------------
+o Improved plotSplom() to draw quietly.
+
+
+
+
+--------------------------------------------------------------------------------
+scapeMCMC 1.0-1
+18 Oct 2005
+--------------------------------------------------------------------------------
+o Renamed argument 'plot.it' to 'plot' in plotDens() and plotTrace().
+
+o Improved help pages.
+
+
+
+
+--------------------------------------------------------------------------------
+scapeMCMC 1.0-0
+12 Oct 2005
+--------------------------------------------------------------------------------
+o Added help pages for all functions.
+
+o Submitted to CRAN.
+
+
+
+
+--------------------------------------------------------------------------------
+scapeMCMC 0.9-0
+29 Sep 2005
+--------------------------------------------------------------------------------
+o Added functions importMCMC(), importProj(), plotAuto(), plotCumu(),
+  plotDens(), plotQuant(), plotSplom(), and plotTrace().
+
+o Added example objects xmcmc and xproj.
+
+o Added example files mcmclike.out, params.pst, procatch.out, projspbm.out,
+  recruits.pst, spawbiom.pst, and strategy.out.

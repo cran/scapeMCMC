@@ -8,7 +8,7 @@
 }
 \usage{
 plotAuto(mcmc, thin=1, log=FALSE, base=10, main=NULL, xlab="Lag",
-         ylab="Autocorrelation", lty=1, lwd=1, col="black", ...)
+         ylab="Autocorrelation", lty=1, lwd=1, col="black", \dots)
 }
 \arguments{
   \item{mcmc}{MCMC chain(s) as a vector, data frame or \code{mcmc}
@@ -22,7 +22,7 @@ plotAuto(mcmc, thin=1, log=FALSE, base=10, main=NULL, xlab="Lag",
   \item{ylab}{y-axis label.}
   \item{lty}{line type.}
   \item{lwd}{line width.}
-  \item{col}{line colour.}
+  \item{col}{line color.}
   \item{\dots}{passed to \code{autocorr.plot()}, \code{title()} and
     \code{axis()}.}
 }
@@ -31,10 +31,16 @@ plotAuto(mcmc, thin=1, log=FALSE, base=10, main=NULL, xlab="Lag",
   The \code{Args} function from the \pkg{gdata} package is recommended
   for reviewing the arguments, instead of \code{args}.
 }
-\author{Arni Magnusson \email{arnima@u.washington.edu}.}
 \seealso{
-  \code{\link[coda]{autocorr.plot}}, \code{\link[coda]{mcmc}},
-  \code{\link[coda]{window.mcmc}}.
+  \code{\link[coda]{autocorr.plot}} is the underlying plotting function,
+  and \code{\link[coda]{window.mcmc}} is used to optionally thin the
+  chain(s).
+
+  \code{\link{plotTrace}}, \code{plotAuto}, \code{\link{plotCumu}}, and
+  \code{\link{plotSplom}} are diagnostic plots.
+
+  \code{\link{plotDens}} and \code{\link{plotQuant}} are posterior
+  plots.
 
   \code{\link{scapeMCMC-package}} gives an overview of the package.
 }

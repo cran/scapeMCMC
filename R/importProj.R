@@ -1,7 +1,7 @@
-"importProj" <-
-function(dir, info="", coda=FALSE, quiet=TRUE)
+importProj <- function(dir, info="", coda=FALSE, quiet=TRUE)
 {
-  get.Policies <- function()
+  ## 1  Define functions
+  getPolicies <- function()
   {
     if(!quiet) cat("Policies  ")
     Policies <- read.table(paste(dir,"strategy.out",sep="/"), skip=1)
@@ -11,7 +11,7 @@ function(dir, info="", coda=FALSE, quiet=TRUE)
     return(Policies)
   }
 
-  get.Years <- function()
+  getYears <- function()
   {
     if(!quiet) cat("Years     ")
     Years <- read.table(paste(dir,"strategy.out",sep="/"), nrows=1)
@@ -23,7 +23,7 @@ function(dir, info="", coda=FALSE, quiet=TRUE)
     return(Years)
   }
 
-  get.B <- function(Policies, Years)
+  getB <- function(Policies, Years)
   {
     if(!quiet) cat("Biomass   ")
     B <- read.table(paste(dir,"projspbm.out",sep="/"), header=TRUE)[,-c(1,2)]
@@ -42,7 +42,7 @@ function(dir, info="", coda=FALSE, quiet=TRUE)
     return(B)
   }
 
-  get.Y <- function(Policies, Years)
+  getY <- function(Policies, Years)
   {
     if(!quiet) cat("Landings  ")
     Y <- read.table(paste(dir,"procatch.out",sep="/"), header=TRUE)
@@ -61,26 +61,27 @@ function(dir, info="", coda=FALSE, quiet=TRUE)
     return(Y)
   }
 
+  ## 2  Verify that files exist
   files <- paste(dir, c("strategy.out","projspbm.out","procatch.out"), sep="/")
-  sapply(files, function(f)  # verify that files are there
-         if(!file.exists(f)) stop("File ",f," does not exist. Please check the 'dir' argument.",call.=FALSE))
+  sapply(files, function(f)
+         if(!file.exists(f)) stop("File ",f," does not exist. Please check the 'dir' argument."))
 
+  ## 3  Parse files
   if(!quiet) cat("\nParsing files in directory ", dir, ":\n\n", sep="")
-  Policies <- get.Policies()
-  Years <- get.Years()
-  B <- get.B(Policies, Years)
-  Y <- get.Y(Policies, Years)
+  Policies <- getPolicies()
+  Years <- getYears()
+  B <- getB(Policies, Years)
+  Y <- getY(Policies, Years)
   if(!quiet) cat("\n")
 
+  ## 4  Collect and convert B, Y
   output <- list(B=B, Y=Y)
   if(coda)
-  {
-    require(coda, quiet=TRUE, warn=FALSE)
     output <- lapply(output, function(x) lapply(x,mcmc))
-  }
+
+  ## 5  Create attributes
   attr(output, "call") <- match.call()
   attr(output, "info") <- info
 
   return(output)
 }
-

@@ -44,24 +44,26 @@
   2003. \cite{Coleraine: A generalized age-structured stock assessment
     model.} User's manual version 2.0. University of Washington Report
   SAFS-UW-0116. Available at
-  http://fish.washington.edu/research/coleraine/coleraine.pdf.
+  \url{http://fish.washington.edu/research/coleraine/coleraine.pdf}.
 
   Magnusson, A. 2003. \cite{Coleraine assessment of the Icelandic cod
     stock.} Report for the Icelandic Marine Research Institute.
   Available from the author.
 }
 \seealso{
-  \code{\link{importMCMC}}, \code{\link{importProj}},
-  \code{\link{xproj}}.
+  \code{\link{importMCMC}} was used to import the MCMC results.
+
+  \code{xmcmc} and \code{\link{xproj}} are MCMC results and projections
+  to explore.
 
   \code{\link{scapeMCMC-package}} gives an overview of the package.
 }
 \examples{
+plotTrace(xmcmc$L)
 plotAuto(xmcmc$P)
 plotCumu(xmcmc$P)
+plotSplom(xmcmc$P)
 plotDens(xmcmc$P)
 plotQuant(xmcmc$B)
-plotSplom(xmcmc$P)
-plotTrace(xmcmc$L)
 }
 \keyword{datasets}

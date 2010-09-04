@@ -8,7 +8,7 @@
   undermine conclusions based on MCMC results of that model.
 }
 \usage{
-plotSplom(mcmc, axes=FALSE, between=0, div=1, log=FALSE, base=10, ...)
+plotSplom(mcmc, axes=FALSE, between=0, div=1, log=FALSE, base=10, \dots)
 }
 \arguments{
   \item{mcmc}{MCMC chains as a data frame or \code{mcmc} object.}
@@ -24,9 +24,15 @@ plotSplom(mcmc, axes=FALSE, between=0, div=1, log=FALSE, base=10, ...)
   The \code{Args} function from the \pkg{gdata} package is recommended
   for reviewing the arguments, instead of \code{args}.
 }
-\author{Arni Magnusson \email{arnima@u.washington.edu}.}
 \seealso{
-  \code{\link{pairs}}, \code{\link[lattice]{splom}}.
+  \code{\link{pairs}} is the underlying drawing function, and
+  \code{\link[lattice]{splom}} is a similar trellis plot.
+
+  \code{\link{plotTrace}}, \code{\link{plotAuto}},
+  \code{\link{plotCumu}}, and \code{plotSplom} are diagnostic plots.
+
+  \code{\link{plotDens}} and \code{\link{plotQuant}} are posterior
+  plots.
 
   \code{\link{scapeMCMC-package}} gives an overview of the package.
 }

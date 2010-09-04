@@ -1,31 +1,31 @@
-"plotQuant" <-
-function(mcmc, style="boxes", probs=c(0.025,0.975), axes=TRUE, names=NULL, ylim=NULL, yaxs="i", div=1, log=FALSE, base=10,
-         main=NULL, xlab=NULL, ylab=NULL, cex.axis=0.8, las=1, tck=-0.015, tick.number=8, lty.median=1,
-         lwd.median=1+2*(style!="boxes"), col.median="black", lty.outer=1+2*(style=="lines"), lwd.outer=1,
-         col.outer="darkgrey", boxfill="darkgrey", boxwex=0.7, mai=c(0.8,1,1,0.6),
-         mgp=list(bottom=c(2,0.4,0),left=c(3,0.6,0),top=c(0,0.6,0),right=c(0,0.6,0)), ...)
+plotQuant <- function(mcmc, style="boxes", probs=c(0.025,0.975), axes=TRUE, names=NULL, ylim=NULL, yaxs="i", div=1,
+                      log=FALSE, base=10, main=NULL, xlab=NULL, ylab=NULL, cex.axis=0.8, las=1, tck=-0.015,
+                      tick.number=8, lty.median=1, lwd.median=1+2*(style!="boxes"), col.median="black",
+                      lty.outer=1+2*(style=="lines"), lwd.outer=1, col.outer="darkgray", boxfill="darkgray", boxwex=0.7,
+                      mai=c(0.8,1,1,0.6), mgp=list(bottom=c(2,0.4,0),left=c(3,0.6,0),top=c(0,0.6,0),right=c(0,0.6,0)),
+                      ...)
 {
-  ## 1 SET OPTIONS
-  owarn <- options(warn=-1)
-  opar <- par("mai", "mar")  # mai changes mar
-  par(mai=mai)
+  ## 1  Set options
+  opar <- par("mai", "mar", no.readonly=TRUE); on.exit(par(opar)); par(mai=mai)  # mai changes mar
 
-  ## 2 PARSE ARGS
+  ## 2  Parse args
   style <- match.arg(style, c("bars","boxes","lines"))
   names <- if(is.null(names)) names(mcmc) else names
   probs <- c(probs[1], 0.25, 0.50, 0.75, probs[length(probs)])  # ensure length=5
   ellipsis <- as.list(substitute(list(...)))[-1]
   if(is.null(dim(mcmc))) stop("Argument 'mcmc' must contain more than one chain, arranged in columns.")
 
-  ## 3 PREPARE DATA
+  ## 3  Prepare data (transform, quantiles)
   mcmc <- if(log) log(mcmc/div,base=base) else mcmc/div
   x <- seq(along=names(mcmc))
   y <- apply(mcmc, 2, quantile, probs=probs, na.rm=TRUE)  # support columns containing only NA values
+
+  ## 4  Prepare plot (ylim)
   if(is.null(ylim))
-    ylim <- if(!log&&all(y[is.finite(y)]>0))
+    ylim <- if(!log && all(y[is.finite(y)]>0))
       c(0,1.04*max(y[is.finite(y)])) else range(y[is.finite(y)])+c(-0.04,0.04)*diff(range(y[is.finite(y)]))
 
-  ## 4 DRAW PLOT
+  ## 4  Draw plot
   if(style == "boxes")
   {
     medlwd <- if(!is.null(ellipsis$medlwd)) ellipsis$medlwd else lwd.median
@@ -36,9 +36,8 @@ function(mcmc, style="boxes", probs=c(0.025,0.975), axes=TRUE, names=NULL, ylim=
   }
   else if(style == "bars")
   {
-    require(gplots, quietly=TRUE, warn=FALSE)
-    plotCI(x, y[3,], ui=y[5,], li=y[1,], ylim=ylim, yaxs=yaxs, pch=NA, gap=0, sfrac=0.005, lty=lty.outer, lwd=lwd.outer,
-           col=col.outer, axes=FALSE, ann=FALSE, ...)
+    gplots::plotCI(x, y[3,], ui=y[5,], li=y[1,], ylim=ylim, yaxs=yaxs, pch=NA, gap=0, sfrac=0.005, lty=lty.outer,
+                   lwd=lwd.outer, col=col.outer, axes=FALSE, ann=FALSE, ...)
     lines(x, y[3,], lty=lty.median, lwd=lwd.median, col=col.median, ...)
   }
   else  # if(style == "lines")
@@ -48,7 +47,7 @@ function(mcmc, style="boxes", probs=c(0.025,0.975), axes=TRUE, names=NULL, ylim=
     lines(x, y[3,], lty=lty.median, lwd=lwd.median, col=col.median, ...)
   }
 
-  ## 5 ANNOTATE PLOT
+  ## 5  Annotate plot
   axes <- if(is.logical(axes)&&axes) 1:4 else axes
   yticks <- pretty(ylim,n=tick.number)[pretty(ylim,n=tick.number)>=ylim[1] & pretty(ylim,n=tick.number)<=ylim[2]]
   if(1 %in% axes) axis(1, cex.axis=cex.axis, las=las, tck=tck, mgp=mgp$bottom, at=x, labels=names, ...)
@@ -63,10 +62,7 @@ function(mcmc, style="boxes", probs=c(0.025,0.975), axes=TRUE, names=NULL, ylim=
     title(ylab=ylab, mgp=mgp$left, ...)
   }
 
-  ## 6 FINISH
-  options(owarn)
-  par(opar)
+  ## 6  Finish
   coords <- list(x=x, y=y)
   invisible(coords)
 }
-

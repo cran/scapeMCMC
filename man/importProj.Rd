@@ -36,24 +36,28 @@ importProj(dir, info="", coda=FALSE, quiet=TRUE)
   are recommended for browsing MCMC projections, e.g.
   \code{ll(xproj); ll(xproj$B); ll(xproj$B$"0.2"); head(xproj$B$"0.2")}.
 }
-\author{Arni Magnusson \email{arnima@u.washington.edu}.}
 \references{
   Hilborn, R., M. Maunder, A. Parma, B. Ernst, J. Payne, and P. Starr.
   2003. \cite{Coleraine: A generalized age-structured stock assessment
     model.} User's manual version 2.0. University of Washington Report
   SAFS-UW-0116. Available at
-  http://fish.washington.edu/research/coleraine/coleraine.pdf.
+  \url{http://fish.washington.edu/research/coleraine/coleraine.pdf}.
 }
 \seealso{
-  \code{\link{importMCMC}}, \code{\link{read.table}},
-  \code{\link{readLines}}, \code{\link{scan}}, \code{\link{xproj}}.
+  \code{\link{read.table}}, \code{\link{readLines}}, and
+  \code{\link{scan}} import any data.
+
+  \code{\link{importMCMC}} and \code{importProj} import Coleraine MCMC
+  results.
+
+  \code{\link{xproj}} was created using \code{importProj}.
 
   \code{\link{scapeMCMC-package}} gives an overview of the package.
 }
 \examples{
 \dontrun{
-path <- paste(.find.package("scapeMCMC"), "/example", sep="")
-xproj <- importProj(path)
+dir <- system.file("example", package="scapeMCMC")
+xproj <- importProj(dir)
 }
 }
 % Programming

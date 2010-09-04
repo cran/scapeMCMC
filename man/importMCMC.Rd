@@ -21,9 +21,9 @@ importMCMC(dir, info="", coda=FALSE, quiet=TRUE, pretty.labels=FALSE,
   \item{pretty.labels}{whether likelihood and parameter columns should
     be renamed}
   \item{l.choose}{vector of strings, indicating which likelihood
-    components to import, or NULL to import all.}
+    components to import, or \code{NULL} to import all.}
   \item{p.choose}{vector of strings, indicating which parameters to
-    import, or NULL to import all.}
+    import, or \code{NULL} to import all.}
 }
 \value{
   A list containing:
@@ -41,25 +41,29 @@ importMCMC(dir, info="", coda=FALSE, quiet=TRUE, pretty.labels=FALSE,
   are recommended for browsing MCMC results, e.g.
   \code{ll(xmcmc); ll(xmcmc$P); head(xmcmc$P)}.
 }
-\author{Arni Magnusson \email{arnima@u.washington.edu}.}
 \references{
   Hilborn, R., M. Maunder, A. Parma, B. Ernst, J. Payne, and P. Starr.
   2003. \cite{Coleraine: A generalized age-structured stock assessment
     model.} User's manual version 2.0. University of Washington Report
   SAFS-UW-0116. Available at
-  http://fish.washington.edu/research/coleraine/coleraine.pdf.
+  \url{http://fish.washington.edu/research/coleraine/coleraine.pdf}.
 }
 \seealso{
-  \code{\link{importProj}}, \code{\link{read.table}},
-  \code{\link{readLines}}, \code{\link{scan}}, \code{\link{xmcmc}}.
+  \code{\link{read.table}}, \code{\link{readLines}}, and
+  \code{\link{scan}} import any data.
+
+  \code{importMCMC} and \code{\link{importProj}} import Coleraine MCMC
+  results.
+
+  \code{\link{xmcmc}} was created using \code{importMCMC}.
 
   \code{\link{scapeMCMC-package}} gives an overview of the package.
 }
 \examples{
 \dontrun{
-path <- paste(.find.package("scapeMCMC"), "/example", sep="")
-xmcmc <- importMCMC(path)  # or rename and select particular elements:
-xmcmc <- importMCMC(path, pretty.labels=TRUE,
+dir <- system.file("example", package="scapeMCMC")
+xmcmc <- importMCMC(dir)  # or rename and select particular elements:
+xmcmc <- importMCMC(dir, pretty.labels=TRUE,
                     l.choose=c("CAc","CAs","Survey","Prior","Total"),
                     p.choose=c("R0","Rinit","uinit","cSleft","cSfull",
                                "sSleft","sSfull","logq"))

@@ -9,10 +9,11 @@
 plotTrace(mcmc, axes=FALSE, same.limits=FALSE,
           between=list(x=axes,y=axes), div=1, span=1/4, log=FALSE,
           base=10, main=NULL, xlab=NULL, ylab=NULL, cex.main=1.2,
-          cex.lab=1, cex.strip=0.8, cex.axis=0.8, las=0, tck=0.5,
-          tick.number=5, lty.trace=1, lwd.trace=1, col.trace="grey",
-          lty.median=1, lwd.median=1, col.median="black", lty.loess=2,
-          lwd.loess=1, col.loess="black", plot=TRUE, ...)
+          cex.lab=1, cex.axis=0.8, cex.strip=0.8, col.strip="gray95",
+          las=0, tck=0.5, tick.number=5, lty.trace=1, lwd.trace=1,
+          col.trace="gray", lty.median=1, lwd.median=1,
+          col.median="black", lty.loess=2, lwd.loess=1,
+          col.loess="black", plot=TRUE, \dots)
 }
 \arguments{
   \item{mcmc}{MCMC chain(s) as a vector, data frame or \code{mcmc}
@@ -30,21 +31,22 @@ plotTrace(mcmc, axes=FALSE, same.limits=FALSE,
   \item{ylab}{y-axis title.}
   \item{cex.main}{size of main title.}
   \item{cex.lab}{size of axis labels.}
-  \item{cex.strip}{size of strip labels.}
   \item{cex.axis}{size of tick labels.}
+  \item{cex.strip}{size of strip labels.}
+  \item{col.strip}{color of strip labels.}
   \item{las}{orientation of tick labels: 0=parallel, 1=horizontal,
     2=perpendicular, 3=vertical.}
   \item{tck}{tick mark length.}
   \item{tick.number}{number of tick marks.}
   \item{lty.trace}{line type of trace.}
   \item{lwd.trace}{line width of trace.}
-  \item{col.trace}{colour of trace.}
+  \item{col.trace}{color of trace.}
   \item{lty.median}{line type of median.}
   \item{lwd.median}{line width of median.}
-  \item{col.median}{colour of median.}
+  \item{col.median}{color of median.}
   \item{lty.loess}{line type of loess.}
   \item{lwd.loess}{line width of loess.}
-  \item{col.loess}{colour of loess.}
+  \item{col.loess}{color of loess.}
   \item{plot}{whether to draw plot.}
   \item{\dots}{passed to \code{xyplot} and \code{panel.loess}.}
 }
@@ -54,16 +56,19 @@ plotTrace(mcmc, axes=FALSE, same.limits=FALSE,
   \code{plot=FALSE}, a trellis object is returned.
 }
 \note{
-  This function tries to draw the plot on a trellis device with a white
-  background.
-
   The \code{Args} function from the \pkg{gdata} package is recommended
   for reviewing the arguments, instead of \code{args}.
 }
-\author{Arni Magnusson \email{arnima@u.washington.edu}.}
 \seealso{
-  \code{\link[lattice]{Lattice}}, \code{\link[lattice]{panel.loess}},
-  \code{\link[coda]{traceplot}}, \code{\link{quantile}}.
+  \code{\link[lattice]{xyplot}} and \code{\link[lattice]{panel.loess}}
+  are the underlying drawing functions, and
+  \code{\link[coda]{traceplot}} is a similar non-trellis plot.
+
+  \code{plotTrace}, \code{\link{plotAuto}}, \code{\link{plotCumu}}, and
+  \code{\link{plotSplom}} are diagnostic plots.
+
+  \code{\link{plotDens}} and \code{\link{plotQuant}} are posterior
+  plots.
 
   \code{\link{scapeMCMC-package}} gives an overview of the package.
 }

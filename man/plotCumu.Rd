@@ -9,7 +9,7 @@
 plotCumu(mcmc, probs=c(0.025,0.975), div=1, log=FALSE, base=10,
          main=NULL, xlab="Iterations", ylab="Value", lty.median=1,
          lwd.median=2, col.median="black", lty.outer=2, lwd.outer=1,
-         col.outer="black", ...)
+         col.outer="black", \dots)
 }
 \arguments{
   \item{mcmc}{MCMC chain(s) as a vector, data frame or \code{mcmc}
@@ -23,10 +23,10 @@ plotCumu(mcmc, probs=c(0.025,0.975), div=1, log=FALSE, base=10,
   \item{ylab}{y-axis label.}
   \item{lty.median}{line type of median.}
   \item{lwd.median}{line width of median.}
-  \item{col.median}{colour of median.}
+  \item{col.median}{color of median.}
   \item{lty.outer}{line type of outer quantiles.}
   \item{lwd.outer}{line width of outer quantiles.}
-  \item{col.outer}{colour of outer quantiles.}
+  \item{col.outer}{color of outer quantiles.}
   \item{\dots}{passed to \code{cumuplot()}, \code{title()} and
     \code{axis()}.}
 }
@@ -35,9 +35,16 @@ plotCumu(mcmc, probs=c(0.025,0.975), div=1, log=FALSE, base=10,
   The \code{Args} function from the \pkg{gdata} package is recommended
   for reviewing the arguments, instead of \code{args}.
 }
-\author{Arni Magnusson \email{arnima@u.washington.edu}.}
 \seealso{
-  \code{\link[coda]{cumuplot}}, \code{\link{quantile}}.
+  \code{\link[coda]{cumuplot}} is the underlying plotting function, and
+  \code{\link{quantile}} is called iteratively to calculate the
+  cumulative quantiles.
+
+  \code{\link{plotTrace}}, \code{\link{plotAuto}}, \code{plotCumu}, and
+  \code{\link{plotSplom}} are diagnostic plots.
+
+  \code{\link{plotDens}} and \code{\link{plotQuant}} are posterior
+  plots.
 
   \code{\link{scapeMCMC-package}} gives an overview of the package.
 }

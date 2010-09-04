@@ -4,11 +4,10 @@
 \docType{package}
 \title{MCMC Diagnostic Plots}
 \description{
-  Markov-chain Monte Carlo diagnostic plots, accompanying the
-  \pkg{scape} package. The purpose of the package is to combine existing
-  tools from the \pkg{coda} and \pkg{lattice} packages, and make it easy
-  to adjust graphical details. It can be useful for anyone using MCMC
-  analysis, regardless of the application.
+  Markov-chain Monte Carlo diagnostic plots. The purpose of the package
+  is to combine existing tools from the \pkg{coda} and \pkg{lattice}
+  packages, and make it easy to adjust graphical details. It can be
+  useful for anyone using MCMC analysis, regardless of the application.
 }
 \details{
   \emph{Import Coleraine MCMC results:}
@@ -23,7 +22,10 @@
     \code{\link{plotTrace}} \tab trends\cr
     \code{\link{plotAuto}}  \tab thinning\cr
     \code{\link{plotCumu}}  \tab convergence\cr
-    \code{\link{plotSplom}} \tab confounding of parameters\cr
+    \code{\link{plotSplom}} \tab confounding of parameters
+  }
+  \emph{Posterior plots:}
+  \tabular{ll}{
     \code{\link{plotDens}}  \tab posterior(s)\cr
     \code{\link{plotQuant}} \tab multiple posteriors on a common y axis
   }
@@ -46,19 +48,16 @@
   The functions \code{Args} and \code{ll} (package \pkg{gdata}) can be
   useful for browsing unwieldy functions and objects.
 }
-\author{Arni Magnusson \email{arnima@u.washington.edu} and Ian Stewart.}
+\author{Arni Magnusson and Ian Stewart.}
 \references{
   Magnusson, A. (2005) \cite{R goes fishing: Analyzing fisheries data
     using AD Model Builder and R.} Proceedings of the 5th International
   Workshop on Distributed Statistical Computing. Available at
-  http://students.washington.edu/arnima/s/pdf/dsc.pdf.
+  \url{http://www.hafro.is/~arnima/uw/s/pdf/dsc.pdf}.
 }
 \seealso{
-  The \pkg{scape} package provides diagnostic plot functions for
-  statistical catch-at-age model fit to data, recommended before
-  starting MCMC analysis. The \pkg{coda} package is a suite of
-  diagnostic functions for MCMC analysis, many of which are used in
-  \pkg{scapeMCMC}.
+  The \pkg{coda} package is a suite of diagnostic functions and plots
+  for MCMC analysis, many of which are used in \pkg{scapeMCMC}.
 }
 % Graphics
 \keyword{hplot}

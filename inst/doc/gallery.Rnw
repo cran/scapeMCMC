@@ -1,0 +1,106 @@
+\documentclass[a4paper]{article}
+\SweaveOpts{echo=FALSE,eps=FALSE,fig=TRUE,keep.source=TRUE}
+%\VignettePackage{scape}
+%\VignetteIndexEntry{Gallery}
+\usepackage{parskip}
+\usepackage{hyperref}
+\newcommand{\p}[1]{{\fontseries{b}\selectfont #1}}
+\begin{document}
+
+\title{The \p{scapeMCMC} gallery}
+\author{Arni Magnusson}
+\maketitle
+
+\tableofcontents
+
+\newpage
+
+\section{Overview}%=============================================================
+
+This vignette is only a series of plots, demonstrating how the \p{scapeMCMC} plot
+examples look in a PDF document, as opposed to the default graphics device.
+Mainly intended for package maintenance.
+
+The general introduction to the \p{scape} and \p{scapeMCMC} packages is the
+vignette \href{dsc.pdf}{R goes fishing}.
+
+<<require,fig=FALSE>>=
+require(scapeMCMC)
+@
+
+\newpage
+
+\section{plotAuto}%=============================================================
+
+<<Auto1>>=
+plotAuto(xmcmc$P$R0)
+@
+
+<<Auto2>>=
+plotAuto(xmcmc$P$R0, thin=10)
+@
+
+<<Auto3>>=
+plotAuto(xmcmc$P, lag.max=50, ann=FALSE, axes=FALSE)
+@
+
+\section{plotCumu}%=============================================================
+
+<<Cumu1>>=
+plotCumu(xmcmc$P$R0, main="R0")
+@
+
+<<Cumu2>>=
+plotCumu(xmcmc$P$cSfull, main="cSfull")
+@
+
+<<Cumu3>>=
+plotCumu(xmcmc$P, probs=c(0.25,0.50,0.75), ann=FALSE, axes=FALSE)
+@
+
+\section{plotDens}%=============================================================
+
+<<Dens1>>=
+plotDens(xmcmc$B$"2004", points=TRUE, div=1000, main="2004\n",
+         xlab="Biomass age 4+ (1000 t)", tick.number=6, strip=FALSE)
+@
+
+<<Dens2>>=
+plotDens(xmcmc$P, xlab="Parameter value", ylab="Posterior density\n")
+@
+
+\section{plotQuant}%============================================================
+
+<<Quant1>>=
+plotQuant(xmcmc$B, style="lines", div=1000, xlab="Year",
+          ylab="Biomass age 4+ (1000 t)")
+@
+
+<<Quant2>>=
+plotQuant(xmcmc$R, names=substring(names(xmcmc$R),3), div=1000,
+          xlab="Year", ylab="Recruitment (million one-year-olds)")
+@
+
+\section{plotSplom}%============================================================
+
+<<Splom1>>=
+plotSplom(xmcmc$P)
+@
+
+<<Splom2>>=
+plotSplom(xproj$B$"0.25", axes=TRUE, between=1, div=1000,
+          main="Future biomass", cex.labels=1.5)
+@
+
+\section{plotTrace}%============================================================
+
+<<Trace1>>=
+plotTrace(xmcmc$P, xlab="Iterations", ylab="Parameter value",
+          layout=c(2,4))
+@
+
+<<Trace2>>=
+plotTrace(xmcmc$P$R0, axes=TRUE, div=1000)
+@
+
+\end{document}

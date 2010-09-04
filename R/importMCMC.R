@@ -1,6 +1,6 @@
-"importMCMC" <-
-function(dir, info="", coda=FALSE, quiet=TRUE, pretty.labels=FALSE, l.choose=NULL, p.choose=NULL)
+importMCMC <- function(dir, info="", coda=FALSE, quiet=TRUE, pretty.labels=FALSE, l.choose=NULL, p.choose=NULL)
 {
+  ## 1  Define functions
   prettyL <- function(l)
   {
     l[l=="CPUE"           ] <- "CPUE"
@@ -33,7 +33,7 @@ function(dir, info="", coda=FALSE, quiet=TRUE, pretty.labels=FALSE, l.choose=NUL
     return(p)
   }
 
-  get.L <- function()
+  getL <- function()
   {
     if(!quiet) cat("Likelihoods  ")
     L <- read.table(paste(dir,"mcmclike.out",sep="/"), header=TRUE)
@@ -52,7 +52,7 @@ function(dir, info="", coda=FALSE, quiet=TRUE, pretty.labels=FALSE, l.choose=NUL
     return(L)
   }
 
-  get.P <- function()
+  getP <- function()
   {
     if(!quiet) cat("Parameters   ")
     P <- read.table(paste(dir,"params.pst",sep="/"), header=TRUE)
@@ -72,7 +72,7 @@ function(dir, info="", coda=FALSE, quiet=TRUE, pretty.labels=FALSE, l.choose=NUL
     return(P)
   }
 
-  get.B <- function()
+  getB <- function()
   {
     if(!quiet) cat("Biomass      ")
     B <- read.table(paste(dir,"spawbiom.pst",sep="/"), header=TRUE)
@@ -83,7 +83,7 @@ function(dir, info="", coda=FALSE, quiet=TRUE, pretty.labels=FALSE, l.choose=NUL
     return(B)
   }
 
-  get.R <- function()
+  getR <- function()
   {
     if(!quiet) cat("Recruitment  ")
     R <- read.table(paste(dir,"recruits.pst",sep="/"), header=TRUE, fill=TRUE)
@@ -96,26 +96,27 @@ function(dir, info="", coda=FALSE, quiet=TRUE, pretty.labels=FALSE, l.choose=NUL
     return(R)
   }
 
+  ## 2  Verify that files exist
   files <- paste(dir, c("mcmclike.out","params.pst","spawbiom.pst","recruits.pst"), sep="/")
-  sapply(files, function(f)  # verify that files are there
-         if(!file.exists(f)) stop("File ",f," does not exist. Please check the 'dir' argument.",call.=FALSE))
+  sapply(files, function(f)
+         if(!file.exists(f)) stop("File ",f," does not exist. Please check the 'dir' argument."))
 
+  ## 3  Parse files
   if(!quiet) cat("\nParsing files in directory ", dir, ":\n\n", sep="")
-  L <- get.L()
-  P <- get.P()
-  B <- get.B()
-  R <- get.R()
+  L <- getL()
+  P <- getP()
+  B <- getB()
+  R <- getR()
   if(!quiet) cat("\n")
 
+  ## 4  Collect and convert L, P, B, R
   output <- list(L=L, P=P, B=B, R=R)
   if(coda)
-  {
-    require(coda, quiet=TRUE, warn=FALSE)
     output <- lapply(output, mcmc)
-  }
+
+  ## 5  Create attributes
   attr(output, "call") <- match.call()
   attr(output, "info") <- info
 
   return(output)
 }
-

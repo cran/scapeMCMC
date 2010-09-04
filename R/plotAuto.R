@@ -1,11 +1,14 @@
-"plotAuto" <-
-function(mcmc, thin=1, log=FALSE, base=10, main=NULL, xlab="Lag", ylab="Autocorrelation", lty=1, lwd=1, col="black", ...)
+plotAuto <- function(mcmc, thin=1, log=FALSE, base=10, main=NULL, xlab="Lag", ylab="Autocorrelation", lty=1, lwd=1,
+                     col="black", ...)
 {
-  owarn <- options(warn=-1)
+  ## 1  Parse args
   ellipsis <- as.list(substitute(list(...)))[-1]
+
+  ## 2  Transform
   mcmc <- if(log) log(mcmc,base=base) else mcmc
 
-  if(is.null(dim(mcmc)))  # vector
+  ## 3  Draw plot
+  if(is.null(dim(mcmc)) && !is.list(mcmc))  # vector/mcmc
   {
     if(is.null(ellipsis$ann) && is.null(ellipsis$axes))    # -,-
       autocorr.plot(window(mcmc(mcmc),thin=thin), lty=lty, lwd=lwd, col=col, ask=FALSE, ann=FALSE, axes=FALSE, ...)
@@ -28,12 +31,11 @@ function(mcmc, thin=1, log=FALSE, base=10, main=NULL, xlab="Lag", ylab="Autocorr
       box()
     }
   }
-  else  # data frame
+  else  # matrix/data frame/list/mcmc.list
   {
+    mcmc <- if(is.mcmc.list(mcmc)) as.data.frame(sapply(mcmc,unclass)) else as.data.frame(mcmc)
     autocorr.plot(window(mcmc(mcmc),thin=thin), lty=lty, lwd=lwd, col=col, ask=FALSE, ...)
   }
-  options(owarn)
 
   invisible(NULL)
 }
-
