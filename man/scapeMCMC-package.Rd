@@ -36,14 +36,14 @@
   }
 }
 \note{
+  \code{browseVignettes()} shows the vignettes. The main vignette
+  \file{scapeMCMC/doc/dsc.pdf} covers \pkg{scapeMCMC} in Section 2.4.
+
   The plot functions assume that MCMC results are stored either as
   a plain vector (single chain) or in named columns (multiple chains).
   It should be easy for users to arrange their MCMC results in this way.
-  The examples demonstrate how several data frames can be bound together
-  in nested lists.
-
-  An overview of plots is presented in \file{scapeMCMC/doc/dsc.pdf},
-  Section 2.4.
+  The examples demonstrate how several data frames can be stored
+  together in nested lists.
 
   The functions \code{Args} and \code{ll} (package \pkg{gdata}) can be
   useful for browsing unwieldy functions and objects.
