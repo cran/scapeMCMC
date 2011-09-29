@@ -2,7 +2,7 @@
 \alias{plotCumu}
 \title{Plot MCMC Cumulative Quantiles}
 \description{
-  Plot Markov-chain Monte Carlo cumulative quantiles. This is a
+  Plot Markov chain Monte Carlo cumulative quantiles. This is a
   diagnostic plot for deciding whether the chain has converged.
 }
 \usage{

@@ -3,7 +3,7 @@
 \docType{data}
 \title{MCMC Projections from Cod Assessment}
 \description{
-  Markov-chain Monte Carlo projections from stock assessment of cod
+  Markov chain Monte Carlo projections from stock assessment of cod
   (\emph{Gadus morhua}) in Icelandic waters.
 }
 \usage{xproj}

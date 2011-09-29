@@ -2,7 +2,7 @@
 \alias{plotSplom}
 \title{Plot MCMC Scatterplot Matrix}
 \description{
-  Plot scatterplots of multiple Markov-chain Monte Carlo chains. This is
+  Plot scatterplots of multiple Markov chain Monte Carlo chains. This is
   a diagnostic plot for deciding whether parameters are confounded. When
   parameter estimates are highly dependent on each other, it may
   undermine conclusions based on MCMC results of that model.

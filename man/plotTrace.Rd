@@ -2,7 +2,7 @@
 \alias{plotTrace}
 \title{Plot MCMC Traces}
 \description{
-  Plot Markov-chain Monte Carlo traces. This is a diagnostic plot for
+  Plot Markov chain Monte Carlo traces. This is a diagnostic plot for
   deciding whether a chain shows unwanted trends.
 }
 \usage{

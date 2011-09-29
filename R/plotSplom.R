@@ -1,6 +1,10 @@
 plotSplom <- function(mcmc, axes=FALSE, between=0, div=1, log=FALSE, base=10, ...)
 {
   ## 1  Parse args
+  if(is.mcmc.list(mcmc))
+    mcmc <- as.mcmc(mcmc)
+  if(is.mcmc(mcmc))
+    mcmc <- as.data.frame(mcmc)
   ellipsis <- as.list(substitute(list(...)))[-1]
   if(is.null(dim(mcmc)))
     stop("Argument 'mcmc' must contain more than one chain, arranged in columns.")

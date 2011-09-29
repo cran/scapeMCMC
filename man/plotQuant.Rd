@@ -2,7 +2,7 @@
 \alias{plotQuant}
 \title{Plot MCMC Quantiles}
 \description{
-  Plot quantiles of multiple Markov-chain Monte Carlo chains, using
+  Plot quantiles of multiple Markov chain Monte Carlo chains, using
   bars, boxes, or lines.
 }
 \usage{

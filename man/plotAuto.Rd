@@ -2,7 +2,7 @@
 \alias{plotAuto}
 \title{Plot MCMC Autocorrelation}
 \description{
-  Plot Markov-chain Monte Carlo autocorrelation over a range of lag
+  Plot Markov chain Monte Carlo autocorrelation over a range of lag
   values. This is a diagnostic plot for deciding whether a chain needs
   further thinning.
 }

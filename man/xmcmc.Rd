@@ -3,7 +3,7 @@
 \docType{data}
 \title{MCMC Results from Cod Assessment}
 \description{
-  Markov-chain Monte Carlo results from stock assessment of cod
+  Markov chain Monte Carlo results from stock assessment of cod
   (\emph{Gadus morhua}) in Icelandic waters.
 }
 \usage{xmcmc}

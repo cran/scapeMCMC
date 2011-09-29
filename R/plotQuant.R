@@ -9,6 +9,10 @@ plotQuant <- function(mcmc, style="boxes", probs=c(0.025,0.975), axes=TRUE, name
   opar <- par("mai", "mar", no.readonly=TRUE); on.exit(par(opar)); par(mai=mai)  # mai changes mar
 
   ## 2  Parse args
+  if(is.mcmc.list(mcmc))
+    mcmc <- as.mcmc(mcmc)
+  if(is.mcmc(mcmc))
+    mcmc <- as.data.frame(mcmc)
   style <- match.arg(style, c("bars","boxes","lines"))
   names <- if(is.null(names)) names(mcmc) else names
   probs <- c(probs[1], 0.25, 0.50, 0.75, probs[length(probs)])  # ensure length=5

@@ -4,7 +4,7 @@
 \docType{package}
 \title{MCMC Diagnostic Plots}
 \description{
-  Markov-chain Monte Carlo diagnostic plots. The purpose of the package
+  Markov chain Monte Carlo diagnostic plots. The purpose of the package
   is to combine existing tools from the \pkg{coda} and \pkg{lattice}
   packages, and make it easy to adjust graphical details. It can be
   useful for anyone using MCMC analysis, regardless of the application.

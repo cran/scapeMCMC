@@ -2,7 +2,7 @@
 \alias{plotDens}
 \title{Plot MCMC Density}
 \description{
-  Plot Markov-chain Monte Carlo density. This is an approximation of the
+  Plot Markov chain Monte Carlo density. This is an approximation of the
   posterior probability density function.
 }
 \usage{
